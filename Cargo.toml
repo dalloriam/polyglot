@@ -3,6 +3,9 @@ name = "polyglot"
 version = "0.1.0"
 authors = ["William Dussault <dalloriam@gmail.com>"]
 edition = "2018"
+description = "A library for format-agnostic serialization"
+license-file = "LICENSE"
+repository = "https://github.com/dalloriam/polyglot"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [features]
