@@ -1,4 +1,6 @@
 # polyglot
+![https://crates.io/crates/polyglot](https://img.shields.io/crates/v/polyglot?style=flat-square)
+
 A library for format-agnostic serialization
 
 ## Target Use-Case
