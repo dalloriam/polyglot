@@ -1,0 +1,21 @@
+[package]
+name = "polyglot"
+version = "0.1.0"
+authors = ["William Dussault <dalloriam@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = []
+json_fmt = ["serde_json"]
+msgpack_fmt = ["rmp-serde"]
+toml_fmt = ["toml"]
+#full = ["json_fmt", "msgpack_fmt", "toml_fmt"]
+
+[dependencies]
+serde = {version = "1.0.104", features = ["derive"]}
+
+# File formats
+rmp-serde = {version = "0.14.3", optional = true}
+serde_json = {version = "1.0.46", optional = true }
+toml = {version = "0.5.6", optional = true}
