@@ -24,30 +24,43 @@ pub enum Format {
     /// Enabled with the `toml_fmt` feature.
     #[cfg(feature = "toml_fmt")]
     TOML,
+
+    /// YAML serialization (via the `serde_yaml` crate)
+    ///
+    /// Enabled with the `yaml_fmt` feature.
+    #[cfg(feature = "yaml_fmt")]
+    YAML,
 }
 
 impl TryFrom<&str> for Format {
     type Error = Error;
     fn try_from(v: &str) -> crate::Result<Format> {
         #[cfg(feature = "json_fmt")]
-            {
-                if v == "json" {
-                    return Ok(Format::JSON);
-                }
+        {
+            if v == "json" {
+                return Ok(Format::JSON);
             }
+        }
         #[cfg(feature = "msgpack_fmt")]
-            {
-                if v == "msgpack" {
-                    return Ok(Format::MsgPack);
-                }
+        {
+            if v == "msgpack" {
+                return Ok(Format::MsgPack);
             }
+        }
 
         #[cfg(feature = "toml_fmt")]
-            {
-                if v == "toml" {
-                    return Ok(Format::TOML);
-                }
+        {
+            if v == "toml" {
+                return Ok(Format::TOML);
             }
+        }
+
+        #[cfg(feature = "yaml_fmt")]
+        {
+            if v == "yaml" {
+                return Ok(Format::YAML);
+            }
+        }
 
         Err(Error::new(format!("Unknown format {}", v)))
     }
@@ -73,6 +86,13 @@ impl AsRef<str> for Format {
         {
             if self == &Format::TOML {
                 return "toml";
+            }
+        }
+
+        #[cfg(feature = "yaml_fmt")]
+        {
+            if self == &Format::YAML {
+                return "yaml";
             }
         }
 

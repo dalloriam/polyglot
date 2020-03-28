@@ -6,13 +6,13 @@ use std::io;
 /// The `From<T>` trait will be defined for all serialization errors of format features enabled.
 #[derive(Debug)]
 pub struct Error {
-    message: String
+    message: String,
 }
 
 impl Error {
     pub fn new<T>(msg: T) -> Error
-        where
-            String: From<T>,
+    where
+        String: From<T>,
     {
         Error {
             message: String::from(msg),
@@ -64,6 +64,13 @@ impl From<toml::de::Error> for Error {
 impl From<toml::ser::Error> for Error {
     fn from(e: toml::ser::Error) -> Error {
         Error::new(format!("Polyglot/TOML Error: {}", e.to_string()))
+    }
+}
+
+#[cfg(feature = "yaml_fmt")]
+impl From<serde_yaml::Error> for Error {
+    fn from(e: serde_yaml::Error) -> Error {
+        Error::new(format!("Polyglot/YAML Error: {}", e.to_string()))
     }
 }
 

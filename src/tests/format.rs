@@ -16,4 +16,5 @@ format_tests! {
     asref_json: (Format::JSON, "json"),
     asref_toml: (Format::TOML, "toml"),
     asref_msgpack: (Format::MsgPack, "msgpack"),
+    asref_yaml: (Format::YAML, "yaml"),
 }
