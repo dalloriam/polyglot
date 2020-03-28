@@ -40,6 +40,13 @@ pub fn to_vec<T: Serialize>(val: &T, format: Format) -> crate::Result<Vec<u8>> {
         }
     }
 
+    #[cfg(feature = "yaml_fmt")]
+    {
+        if format == Format::YAML {
+            return Ok(serde_yaml::to_vec(val)?);
+        }
+    }
+
     Err(Error::new("Library Error - Unimplemented Serialize"))
 }
 
@@ -89,6 +96,13 @@ pub fn to_string<T: Serialize>(val: &T, format: Format) -> crate::Result<String>
         }
     }
 
+    #[cfg(feature = "yaml_fmt")]
+    {
+        if format == Format::YAML {
+            return Ok(serde_yaml::to_string(val)?);
+        }
+    }
+
     Err(Error::new("Library Error - Unimplemented Serialize"))
 }
 
@@ -101,6 +115,14 @@ pub fn to_writer<T: Serialize, V: std::io::Write>(
     {
         if format == Format::JSON {
             serde_json::to_writer(w, val)?;
+            return Ok(());
+        }
+    }
+
+    #[cfg(feature = "yaml_fmt")]
+    {
+        if format == Format::YAML {
+            serde_yaml::to_writer(w, val)?;
             return Ok(());
         }
     }

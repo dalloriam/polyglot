@@ -1,5 +1,6 @@
 # polyglot
-![https://crates.io/crates/polyglot](https://img.shields.io/crates/v/polyglot?style=flat-square)
+[![Crate](https://img.shields.io/crates/v/polyglot?style=flat-square)](https://crates.io/crates/polyglot)
+[![Documentation](https://docs.rs/polyglot/badge.svg)](https://docs.rs/polyglot)
 
 A library for format-agnostic serialization
 

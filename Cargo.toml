@@ -1,6 +1,6 @@
 [package]
 name = "polyglot"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["William Dussault <dalloriam@gmail.com>"]
 edition = "2018"
 description = "A library for format-agnostic serialization"
@@ -13,6 +13,7 @@ default = []
 json_fmt = ["serde_json"]
 msgpack_fmt = ["rmp-serde"]
 toml_fmt = ["toml"]
+yaml_fmt = ["serde_yaml"]
 #full = ["json_fmt", "msgpack_fmt", "toml_fmt"]
 
 [dependencies]
@@ -22,3 +23,4 @@ serde = {version = "1.0.104", features = ["derive"]}
 rmp-serde = {version = "0.14.3", optional = true}
 serde_json = {version = "1.0.46", optional = true }
 toml = {version = "0.5.6", optional = true}
+serde_yaml = {version = "0.8", optional = true}
