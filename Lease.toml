@@ -1,7 +1,0 @@
-name = "polyglot"
-version = "0.1.0"
-stack = "rust"
-
-[[build]]
-architecture = "amd64"
-platform = "linux"
