@@ -79,6 +79,7 @@ where
     R: io::Read,
     T: de::DeserializeOwned,
 {
+    // TODO: Adapt mutability of rdr depending of implementation.
     #[cfg(feature = "json_fmt")]
     {
         if format == Format::JSON {
