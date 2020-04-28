@@ -9,6 +9,8 @@ pub struct Error {
     message: String,
 }
 
+impl std::error::Error for Error {}
+
 impl Error {
     pub fn new<T>(msg: T) -> Error
     where
